@@ -1,0 +1,88 @@
+<html>
+  <head>
+    <title>Login</title>
+  <style>
+    
+form {
+  margin: 20px auto;
+  max-width: 500px;
+  padding: 20px;
+  border: 1px solid #434141;
+  border-radius: 5px;
+}
+
+label {
+  display: block;
+  margin-bottom: 10px;
+}
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="submit"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+  margin-bottom: 20px;
+}
+
+input[type="submit"] {
+  background-color: #4CAF50;
+  color: #fff;
+  cursor: pointer;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+.alert-success {
+  background-color: #D4EDDA;
+  color: #155724;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+.alert-danger {
+  background-color: #F8D7DA;
+  color: #721C24;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+</style>
+</head>
+  <body> 
+<h1>Login</h1>
+<form id="login-form" method="post">
+  <label for="username">Username:</label>
+  <input type="text" id="username" name="username"><br><br>
+  <label for="password">Password:</label>
+  <input type="password" id="password" name="password"><br><br>
+
+  <input type="submit" value="Login">
+</form>
+<script>
+  const form = document.getElementById('login-form');
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const username = form.elements['username'].value;
+    const password = form.elements['password'].value;
+
+    fetch('http://localhost:8080/api/login', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ username, password })
+    })
+    .then(res => res.text())
+    .then(msg => {
+      alert(msg);
+      if (msg === 'Login Success') {
+        window.location.href = '../innerpage.html';
+      }
+    });
+  });
+</script>
+</body>
+</html>

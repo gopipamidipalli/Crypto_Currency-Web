@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width">
+    <title>Crypto Portfolio</title>
+    <link rel="stylesheet" href="#">
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"
+            integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8="
+            crossorigin="anonymous"></script>
+    <style>
+                    body {
+              font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+              margin: 0;
+              background-color: #f4f4f4;
+            }
+
+            .container {
+              max-width: 1000px;
+              margin: auto;
+              padding: 20px;
+            }
+
+            .portfolio-content {
+              margin-top: 30px;
+            }
+
+            .portfolio-summary {
+              font-size: 1.2em;
+              margin-bottom: 20px;
+            }
+
+            .portfolio-table {
+              width: 100%;
+              border-collapse: collapse;
+              background-color: white;
+            }
+
+            .portfolio-table th, .portfolio-table td {
+              border: 1px solid #ddd;
+              padding: 12px;
+              text-align: center;
+            }
+
+            .portfolio-table th {
+              background-color: #f0f0f0;
+            }
+
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <div class="portfolio-content">
+        <h1>Your Crypto Portfolio</h1>
+        <div class="portfolio-summary">
+            <p>Total Portfolio Value: $<span id="total-value">0.00</span></p>
+        </div>
+
+        <table class="portfolio-table">
+            <thead>
+            <tr>
+                <th>Coin</th>
+                <th>Quantity</th>
+                <th>Current Price(USD)</th>
+                <th>Total Value(USD)</th>
+                <th> Sell </th>
+            </tr>
+            </thead>
+            <tbody id="portfolio-body">
+            <!-- Rows will be populated by JS -->
+            </tbody>
+        </table>
+    </div>
+</div>
+</body>
+</html>
